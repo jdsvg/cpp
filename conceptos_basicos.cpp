@@ -105,5 +105,4 @@ int main() //Inicializador del programa
 	cout<<"Constante de #define "<<pi<<endl;
 	cout<<"Constante de const "<<PI<<endl;
 	//
-	cout<<sizeof(bool)<<endl;
 } //main
