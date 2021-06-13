@@ -13,7 +13,7 @@ int main() //Inicializador del programa
 	* Secuencias de escape
 	\n → Salto de linea
 	\b → retrocede un caracter
-	\r → Retrocede el numero de caracteres de la cadena siguiente, y asigna los caracteres de atras a hacia adelante, de las cadena en la que se indico \r
+	\r → Sobrepone la cadena seguida de la secuencia de escape, sobre el inicio de la cadena en sí
 	\t → Tabulador
 	\0 → Fin de linea
 	*/
@@ -30,6 +30,9 @@ int main() //Inicializador del programa
 	//
 	/*
 	*Variables:
+	Los nombres de las  variables no pueden tener simbolos salvo, raya al piso "_"
+	sizeof(tipoVariable): Devuelve el tamaño, en bytes  del tipo variable
+	Si no se asigna un valor a la variable, se le asigna automaticamente un cavalor "basura"
 	Tipos: 
 		int: 	(Bytes[variables] = 4 u 8), puede almacenar 2^32 = 4.294.967.296 (4.294.967.295, si se cuenta el 0), valores cuando se usa 
 				el indicativo = 'unsigned'.
@@ -37,12 +40,7 @@ int main() //Inicializador del programa
 				Una mitad para los valores positivos y la otra para los valores negativos, quedando 2^31 = -2.147.483.648, a, 2.147.483.647
 						
 	char(Bytes = 1)
-	char: Cuando se asigna una valor numerico a una variable char, esta lo convierte a su caracter correspondiente en codigo ASCII
-	sizeof(tipoVariable): Devuelve el tamaño, en bytes  del tipo variable
-	
-	Los nombres de las  variables no pueden tener simbolos salvo, raya al piso "_"
-
-	Si no se asigna un valor a la variable, se le asigna automaticamente un cavalor "basura"
+	char: Cuando se asigna un valor numerico a una variable char, esta lo convierte a su caracter correspondiente en codigo ASCII
 	*/
 	cout << "Variables" << endl;
 	cout << "Int:" << endl;
@@ -51,7 +49,7 @@ int main() //Inicializador del programa
 	cout << "Pero si se excede de su limite retoma su minimo valor: " << endl;
 	numero1 = 2147483648;
 	cout << "Este es ahora el valor numero1 (usando: 2147483648): " << numero1 << endl;
-	//
+	//Con unsigned
 	cout << "Usando el valor unsigned" << endl;
 	unsigned int numero2 = 4294967295;
 	cout << "Numero 2 (usando: 4294967295) : " << numero2 << endl;
@@ -107,4 +105,5 @@ int main() //Inicializador del programa
 	cout<<"Constante de #define "<<pi<<endl;
 	cout<<"Constante de const "<<PI<<endl;
 	//
+	cout<<sizeof(bool)<<endl;
 } //main
