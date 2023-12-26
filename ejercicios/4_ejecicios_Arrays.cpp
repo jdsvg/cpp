@@ -139,6 +139,12 @@ int main()      // Inicializador del programa
     // }
     // cout<<endl;cout<<"Elemento menor del array es: "<<array1[menor]<<". En el indice: "<<menor<<endl;
 
+
+
+
+
+
+
     /* EJECIRCIO 5 */
     /*
         Ordenamiento Burbuja
@@ -157,16 +163,11 @@ int main()      // Inicializador del programa
                 A[j]=A[j+1];
                 A[j+1]=aux;
             }
-            
-
         }
     }
 
     for (int i = 0; i < 7; i++)
-    {
-        cout<<A[i]<<", ";
-    }
-    cout<<endl;
+    {cout<<A[i]<<", ";}cout<<endl;
 
     return 0;
 } // main
