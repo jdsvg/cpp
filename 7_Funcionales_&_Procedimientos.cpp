@@ -26,7 +26,7 @@ void llenar_matriz(int[][MAX], int, int);
 // 
 // SOBRE CARGA DE FUNCIONES
 // Se refiere a la utilizacion de multiples funciones con el mismo nombre, pero que reciben cada una diferentes parametros o en diferente orden.
-// Sin embargo no esta permitido tener funciones, que aunque tengan diferentes tipos, tengan los mismos parametros: 
+// Sin embargo no esta permitido tener funciones, que aunque tengan diferentes tipos, tengan tambien los mismos nombres y parametros: 
 // double multiplicacion(int, int); //Esta funcion no puede ser sobrecargada.
 int multiplicacion(int, int);
 float multiplicacion(float, float);
