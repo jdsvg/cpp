@@ -47,8 +47,8 @@ int main() //Inicializador del programa
 
     // // El siguiente ejemplo fallara, omitiendo la solicitud del nombre.
     // //Ya que al indicar algun numero se toma tambien '\n' (Que es el salto de linea ocacionado por el Enter), en el buffer de entrada.
-    // //Porque lo que este buffer tendra '23\n', asignando los caracteres numericos a la variable numerica
-    // //Y los demas caracteres a la variable (array) char
+    // //Porque este buffer tendra: '23\n', asignando los caracteres numericos a la variable numerica
+    // //Y los demas caracteres a la variable char (la cual se encuende como un array implicito) 
     // cout<<"Ingresa tu edad"<<endl;
     // cin>>edad; 
     // cout<<"Ingresa tu nombre"<<endl;
