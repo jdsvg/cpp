@@ -13,7 +13,7 @@ int main() //Inicializador del programa
     /*
         EJERCICIO 1
 
-        Escribe un programa que lea un archovo y escriba en otro archovo el contenido del primer archivo, con dotas las letras en mayúsculas.
+        Escribe un programa que lea un archovo y escriba en otro archovo el contenido del primer archivo, con todas las letras en mayúsculas.
     */
 
     ifstream archivo_entrada;

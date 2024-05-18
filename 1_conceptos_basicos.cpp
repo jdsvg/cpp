@@ -18,14 +18,14 @@ int main() //Inicializador del programa
 	\0 → Fin de linea
 	*/
 	cout << "Se pueden poner " << endl
-		 << "varios endl, en un mismo cout" << endl;
+		<< "varios endl, en un mismo cout" << endl;
 	cout << "Probando Seuencia de escape: r" << endl;
 	cout << "Acontinuacion se prenseta la cadena abcg, y def \nEsta ultima tiene 3 caracteres, por lo que se sobre pondra la segunda cadena en los primeros 3 caracteres de la primer cadena \nObteniendo la siguiente cadena: " << endl;
 	cout << "Antes: "
-		 << "abcg"
-		 << "def\nDespues: " << endl;
+		<< "abcg"
+		<< "def\nDespues: " << endl;
 	cout << "abcg\r"
-		 << "def" << endl;
+		<< "def" << endl;
 	cout <<endl;
 	//
 	/*

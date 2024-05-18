@@ -33,9 +33,9 @@ int main() //Inicializador del programa
     */
 
     //Leer un archivo
-    // ifstream archivo_entrada;
+    // ifstream archivo_entrada; //Crear objeto de flujo de entrada
     // archivo_entrada.open("9_recursos/Archivo1.txt", ios::in); // ios::in: Abre el archivo en modo de lectura.
-    // int tamaño_array = 5;
+    // int tamaño_array = 6;
     // char linea[tamaño_array];
     // archivo_entrada.getline(linea, tamaño_array); //Leera hasta tomar 80 caracteres o hasta encontrar un '\n' la linea leida. Se indca un caracter adicional ya se agregara el '\0', por getline
     // cout<<"-_"<<linea<<"_-"<<endl;
@@ -48,7 +48,7 @@ int main() //Inicializador del programa
 
         ofstream -> Es el flujo de escritura.
 
-        ios::in: Abre el archivo en modo de lectura. Permite leer el contenido del archivo, pero no permite realizar operaciones de escritura. Esta opción es útil cuando solo necesitas leer el contenido existente del archivo.
+        ios::in: Abre el archivo en modo de lectura. Permite leer el contenido del archivo, pero no permite realizar operaciones de escritura. Esta opción es útil cuando solo necesitas leer el contenido existente en el archivo.
 
         ios::binary: Abre el archivo en modo binario
         
@@ -71,7 +71,7 @@ int main() //Inicializador del programa
     // cin.ignore(256, '\n');
     // cout<<"Hola mundo "<<x<<endl; //cout -> Console Output -> Salida por consola. Donde "<<", sera un operador de insercion para la salida por consola.
     // ofstream archivo_salida;
-    // archivo_salida.open("9_recursos/Archivo1.txt", ios::app); //No es necesario que el archivo exista
+    // archivo_salida.open("9_recursos/ArchivoAux.txt", ios::app); //No es necesario que el archivo exista
     // archivo_salida<<"\nHola mundo "<<x<<endl; //Redireccion de flujo: Escribir en el archivo.
     // archivo_salida.close(); //Cierre de flujo: Cerrar el archivo.
 
@@ -81,16 +81,16 @@ int main() //Inicializador del programa
 
         bad(): Devulve True, cuando: No hay permisos para abrir el archivo. Cuando no hay espacio en el disco. Cuendo no exite el archivo
         fail(): Devulve True, cuando: Hay un error de formato (tratas de leer un int y solo encuentra un char)
-        eof()::End_of_File:  Devulve True, cuando: Se llego al fin del archivo: Cuando se leer un archivo liena por linea y se llega al final
+        eof()::End_of_File:  Devulve True, cuando: Se llego al fin del archivo: Cuando al leer un archivo liena por linea y se llega al final del contenido en el archivo
         good(): Devulve True, cuando: bat() y fail() = good(), sera True
     */
 
     // ifstream archivo_entrada;
-    // archivo_entrada.open("9_recursos/Archivo1.txt"); //No existe este archivo
+    // archivo_entrada.open("9_recursos/Archivo2.txt"); //No existe este archivo
     // // archivo_entrada.open("9_recursos/Archivo2.txt"); //No existe este archivo
     // if(archivo_entrada.good()){cout<<"Buen flujo de Apertura"<<endl;}
     // else{cout<<"Error en el flujo de apertura"<<endl;}
-    // archivo_entrada.close()
+    // archivo_entrada.close();
 
     /*
         LEER MULTOPLES LINEAS EN UN ARCHIVO
@@ -105,12 +105,13 @@ int main() //Inicializador del programa
     // archivo_entrada.close();
 
     // char linea2 [256]; //
-    // archivo_entrada.open("9_recursos/pruebas.cpp"); //No existe este archivo
+    // archivo_entrada.open("9_recursos/Noexite.cpp"); //No existe este archivo
     // if(archivo_entrada.good()){
     //     while(!archivo_entrada.eof()){archivo_entrada.getline(linea2, 256);cout<<linea2<<endl;}
     // }else{
     //     cout<<"No se puede leer"<<endl;
     // }
+    // archivo_entrada.close();
 
 
     /*
@@ -146,24 +147,33 @@ int main() //Inicializador del programa
     //         1-. A que punto/posicion de la memoria se van a pasar los bytes
     //         2-. Cuantos bytes se van a pasar
     // */
+
+    // Persona2 p;
     // ifstream archivo_entrada;
     // archivo_entrada.open("9_recursos/data.bin", ios::binary); //Las extenciones para un archivo binario son: .bin; .dat
+    
+    // 1er iteracion
     // archivo_entrada.read((char*)&p, sizeof(Persona2));
     // cout<<p.nombre<<endl;
     // cout<<p.edad<<endl;
-    
+
+    // // 2da iteracion
     // archivo_entrada.read((char*)&p, sizeof(Persona2));
     // cout<<p.nombre<<endl;
     // cout<<p.edad<<endl;
     // archivo_entrada.close();
 
+    // USANDO EOF
     // /*IMPORTATEN NOTAR ESTA DIFERENCIA ENTRE UN WHILE EN VERDADERO DESPUES HABER ITERADO UN ARCHIVO Y UN WHILE EN FALSE SIN HABER ITERADO EL ARCHIVO*/
+    // No se mostrara el contenido del archivo, porque por defecto "eof" es 'false', luego el bucle nunca se ejecutara.
     // //Descomenta/comentar el codigo despues de la declaracion de 'archivo_entrada' hasta este comentario para ver el cambio
+    ifstream archivo_entrada;
+    Persona2 p;
     // archivo_entrada.open("9_recursos/data.bin", ios::binary); 
-    // while(archivo_entrada.eof()){
-    //     archivo_entrada.read((char*)&p, sizeof(Persona2));
-    //     cout<<p.nombre<<endl;
-    //     cout<<p.edad<<endl;    
+    // while(!archivo_entrada.eof()){ // Mientras no sea el final del archivo
+        // archivo_entrada.read((char*)&p, sizeof(Persona2));
+        // cout<<p.nombre<<endl;
+        // cout<<p.edad<<endl;    
     // }
     // archivo_entrada.close();
 
@@ -180,13 +190,15 @@ int main() //Inicializador del programa
     // archivo_entrada.open("9_recursos/data.bin", ios::binary); //Las extenciones para un archivo binario son: .bin; .dat
     // cout<<endl;cout<<endl;
     // while(archivo_entrada.read((char*)&p,sizeof(Persona2))){//Se controla la iteracion, no en funcion del archivo, sino en funcion del objeto en memoria
-    //     /**********
-    //         EOF         READ?       P
-    //         NO          SI        Gian,23
-    //         NO          SI        Gian,23
-    //         NO          NO        Gian,23
-    //         SALE DEL WHILE
-    //     ************/
+    // //     /**********
+    // //      Suponiendo que el archivo tiene la informacion indicada
+    // //      Logica del 'while':
+    // //         EOF         READ?       Persona P
+    // //         NO          SI           John,23
+    // //         NO          SI           Carlos,32
+    // //         NO          NO           Carlos,32 ->>>> No ha llegado al final del archivo. Y "P", aun mantiene los datos previos: Carlos,32
+    // //         SALE DEL WHILE
+    // //     ************/
     //     cout<<p.nombre<<endl;
     //     cout<<p.edad<<endl;
     // }
